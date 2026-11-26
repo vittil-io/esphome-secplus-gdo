@@ -2,12 +2,15 @@ external_components:
   - source: github://gelidusresearch/esphome-secplus-gdo
     components: [ secplus_gdo ]
     refresh: 0s
+  - source: github://vittil-io/vittil
+    components: [vittil]
 # ToF Sensor
 #  - source: github://GelidusResearch/ToF
 #    components: [vl53l1x]
 #    refresh: 0s
 
 substitutions:
+  vittil_project_key: "ecr_your_project_key"
   id_prefix: grgdo1
   friendly_name: "GRGDO1"
   uart_tx_pin: GPIO22           # J4 Pin 1 or 3 Red CTRL
@@ -469,3 +472,6 @@ button:
           id: gdo_client_id
       - button.press:
           id: restart_button
+
+vittil:
+  project_key: ${vittil_project_key}
